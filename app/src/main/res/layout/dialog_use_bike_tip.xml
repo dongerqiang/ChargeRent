@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    
+    >
+<LinearLayout 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/shap_dialog_white_circle"
+     >
+    
+    <TextView 
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+    	android:layout_height="42dp"
+    	android:textSize="18sp"
+    	android:lines="1"
+    	android:gravity="center"
+    	android:background="@drawable/shap_dialog_white_circle"
+    	android:paddingLeft="10dp"
+    	android:paddingEnd="10dp"
+    	android:textColor="@color/bg"
+    	android:text="@string/p_tip"/>
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:color/darker_gray"/>
+    <ImageView 
+        android:id="@+id/iv_tip"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/p_tip"/>
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@android:color/darker_gray"/>
+    <Button 
+        android:id="@+id/confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_open"
+        android:background="@null"
+        android:gravity="center"
+        android:textColor="@color/bg"
+        
+        android:textSize="14sp"/>
+
+</LinearLayout>
+</RelativeLayout>

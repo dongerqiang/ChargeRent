@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ssdk_oks_share">Share</string>
+    <string name="ssdk_oks_sharing">Share in the background…</string>
+    <string name="ssdk_oks_share_failed">Share fail</string>
+    <string name="ssdk_oks_share_completed">Share success</string>
+    <string name="ssdk_oks_share_canceled">Share cancel</string>
+    <string name="ssdk_oks_cancel">Cancel</string>
+    <string name="ssdk_oks_multi_share">Graphic sharing</string>
+    <string name="ssdk_oks_confirm">Confirm</string>
+    <string name="ssdk_oks_contacts">Contact person</string>
+    <string name="ssdk_oks_pull_to_refresh">Pull down to refresh</string>
+	<string name="ssdk_oks_release_to_refresh">Loosen to refresh</string>
+	<string name="ssdk_oks_refreshing">Loading…</string>
+</resources>

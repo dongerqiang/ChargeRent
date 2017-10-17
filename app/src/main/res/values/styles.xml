@@ -1,0 +1,128 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="OverflowButtonStyle" parent="@android:style/Widget.ActionButton.Overflow">
+        <item name="android:src">@drawable/icon_write_serich</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        //设置状态栏
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="colorControlNormal">@android:color/darker_gray</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+    </style>
+        <style name="AppTheme.NoActionBar.FullScreen"> <!--自定义主题名称-->
+            <item name="android:windowFullscreen">true</item>
+        </style>
+
+    <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>
+        <item name="android:dropDownWidth">wrap_content</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:dropDownVerticalOffset">0dip</item>
+        <item name="android:actionOverflowButtonStyle">@style/OverflowButtonStyle</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="custom_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">false</item>
+        <!-- 是否浮现在activity之上 -->
+        <!-- <item name="android:windowIsTranslucent">true</item> -->
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <!-- <item name="android:backgroundDimEnabled">false</item> -->
+        <!-- 模糊 -->
+    </style>
+
+    <style name="seekbar_style" parent="@android:style/Widget.SeekBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">@android:drawable/progress_indeterminate_horizontal</item>
+        <item name="android:progressDrawable">@drawable/seekbar_progress</item>
+        <item name="android:thumb">@drawable/icon_thumb</item>
+    </style>
+
+    <style name="SwitchButtonMD">
+        <item name="kswThumbDrawable">@drawable/ksw_md_thumb</item>
+        <item name="kswBackColor">@color/ksw_md_back_color</item>
+        <item name="kswBackMeasureRatio">1.45</item>
+        <item name="kswThumbMarginLeft">-16dp</item>
+        <item name="kswThumbMarginTop">-14dp</item>
+        <item name="kswThumbMarginRight">-16dp</item>
+        <item name="kswThumbMarginBottom">-14dp</item>
+        <item name="kswThumbWidth">@dimen/ksw_md_thumb_ripple_size</item>
+        <item name="kswThumbHeight">@dimen/ksw_md_thumb_ripple_size</item>
+    </style>
+
+    <!-- device list dialog style -->
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/black</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <!-- pair dialog style -->
+    <style name="pairDialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#fff</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <!-- 自定义loading dialog -->
+    <style name="loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">1sp</item>
+    </style>
+
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/white</item>
+        <item name="colorPrimary">@color/white</item>
+
+        <!-- AppCompatEditText默认状态状态设置底线颜色 -->
+        <item name="colorControlNormal">#3F51b5</item>
+        <!-- AppCompatEditText选择的底线颜色 -->
+        <item name="colorControlActivated">#c6174e</item>
+    </style>
+
+    <style name="SwitchButtonStyleMD" parent="SwitchButtonMD">
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+    <style name="AnimDialog" type="text/css">
+        <item name="android:windowEnterAnimation">@anim/dialog_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_out</item></style>
+</resources>

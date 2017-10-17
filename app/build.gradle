@@ -1,0 +1,127 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+def AAVersion = '3.3.2'
+android {
+    useLibrary 'org.apache.http.legacy'
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "com.qdigo.chargerent"
+        minSdkVersion 18
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        // dex突破65535的限制
+        multiDexEnabled true
+        // bugly ndk support
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("C:/Users/jpj/.android/debug.keystore")
+        }
+
+        release {
+            keyAlias 'charge'
+            keyPassword '123456'
+            storeFile file("charge.jks")
+            storePassword '123456'
+        }
+    }
+
+    buildTypes {
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+
+            versionNameSuffix "-debug"
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
+        }
+
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_RELEASE", "true"
+            //混淆
+            minifyEnabled true
+
+            //Zipalign优化
+            zipAlignEnabled true
+
+            // 移除无用的resource文件
+            shrinkResources true
+            //加载默认混淆配置文件 progudard-android.txt在sdk目录里面，不用管，proguard.cfg是我们自己配<span></span>的混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名
+            signingConfig signingConfigs.release
+
+        }
+    }
+
+    sourceSets {
+        main.jniLibs.srcDirs = ['libs']
+        main.assets.srcDirs = ['assets']
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile files('libs/core-3.2.1.jar')
+    /* bugly */
+    /*buffer knife*/
+    /*gilde*/
+    compile files('libs/httpcore-4.4.4.jar')
+    compile files('libs/httpmime-4.5.2.jar')
+    compile files('libs/gson-2.2.2.jar')
+    /*androidannotations*/
+    apt "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:design:26.+'
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    compile 'com.jakewharton:butterknife:8.2.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+}
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0]?.processResources?.manifestFile
+        resourcePackageName 'com.qdigo.chargerent'
+    }
+}
+repositories {
+    mavenCentral()
+    maven() {
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+}
