@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/title_bar_layout" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="充电时间："
+            android:textColor="@color/white"
+            android:background="@drawable/button_ff9900_bg"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/shape_edit_frame_bg"
+            android:hint="选择时间"
+            android:textColorHint="@color/gray_lite"
+            android:inputType="text"
+            android:gravity="center"
+            android:textColor="#666666"
+            android:textSize="14sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="充电电压："
+            android:textColor="@color/white"
+            android:background="@drawable/button_ff9900_bg"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_voltage"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/shape_edit_frame_bg"
+            android:hint="选择电压"
+            android:textColorHint="@color/gray_lite"
+            android:inputType="text"
+            android:gravity="center"
+            android:textColor="#666666"
+            android:textSize="14sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="充电端口："
+            android:textColor="@color/white"
+            android:background="@drawable/button_ff9900_bg"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_dot"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:hint="选择端口"
+            android:background="@drawable/shape_edit_frame_bg"
+            android:inputType="text"
+            android:textColorHint="@color/gray_lite"
+            android:gravity="center"
+            android:textColor="#666666"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginEnd="10dp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_height="42dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="42dp"
+            android:gravity="center"
+            android:text="预计花费："
+            android:textColor="@color/white"
+            android:background="@drawable/button_ff9900_bg"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/tv_cost"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:hint="0 元"
+            android:background="@drawable/shape_edit_frame_bg"
+            android:inputType="text"
+            android:textColorHint="@color/gray_lite"
+            android:gravity="center"
+            android:textColor="#666666"
+            android:textSize="14sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:id="@+id/ll_jifei">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:textSize="12sp"
+            android:text="@string/rescue_half_1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/bg"
+            android:text="@string/rescue_half_2"/>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_ff9900_bg"
+        android:text="立即支付"
+        android:textColor="#fff"
+        android:textSize="18sp" />
+
+</LinearLayout>

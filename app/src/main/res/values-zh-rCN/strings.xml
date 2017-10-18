@@ -424,8 +424,8 @@
     <string name="type_accident">突发事故</string>
     <string name="type_call">一键呼叫</string>
     <string name="rescue_50">详细描述让救援更快速(最多50字)</string>
-    <string name="rescue_half_1">点击救援，即表示您已阅读并同意</string>
-    <string name="rescue_half_2">救援收费规则</string>
+    <string name="rescue_half_1">点击表示您已阅读并同意</string>
+    <string name="rescue_half_2">收费规则</string>
     <string name="kefu">联系客服</string>
     <string name="chat_tip">您好，请问有什么需要帮助的吗？(咨询人工，请发送\"人工客服\")</string>
     <string name="v5_chat_title">智能客服</string>

@@ -28,7 +28,6 @@ import android.widget.TextView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.qdigo.chargerent.AppManager;
-import com.qdigo.chargerent.Constants;
 import com.qdigo.chargerent.MyApplication;
 import com.qdigo.chargerent.R;
 import com.qdigo.chargerent.interfaces.ILogin;
@@ -37,7 +36,6 @@ import com.qdigo.chargerent.scan.decoding.CaptureFragmentHandler;
 import com.qdigo.chargerent.scan.decoding.InactivityTimer;
 import com.qdigo.chargerent.scan.view.ViewfinderView;
 import com.qdigo.chargerent.utils.LogUtils;
-import com.qdigo.chargerent.utils.SettingShareData;
 import com.qdigo.chargerent.utils.TitleBar;
 import com.qdigo.chargerent.utils.ToastUtils;
 
@@ -82,8 +80,8 @@ public class ScanBikeActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_scan_bike);
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         //最大音量
-        int maxVolume = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC,(int)(maxVolume*0.4),0);
+//        int maxVolume = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+//        mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC,(int)(maxVolume*0.4),0);
         ButterKnife.bind(this);
         app = MyApplication.getInstance();
         mContext = this;
@@ -96,15 +94,9 @@ public class ScanBikeActivity extends AppCompatActivity implements View.OnClickL
                 mp.start();
             }
         });
-        int keyValueInt = SettingShareData.getInstance(mContext).getKeyValueInt(Constants.VOICE_INT, 0);
-        if(keyValueInt<2){
-            keyValueInt++;
-            playMedia("start_ok.wav");
-            SettingShareData.getInstance(mContext).setKeyValue(Constants.VOICE_INT, keyValueInt);
-        }
-        if(!isFirst){
+        /*if(!isFirst){
             openBluetooth();
-        }
+        }*/
 
     }
 
@@ -385,7 +377,11 @@ public class ScanBikeActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void doCharge(String resultString) {
-
+        Intent intent = new Intent(this, ChargeActivity.class);
+        intent.putExtra("number",resultString);
+        startActivity(intent);
+        restartScan();
+        finish();
     }
 
     public void restartScan(){

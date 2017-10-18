@@ -205,5 +205,57 @@ public class DialogUtils {
         dialog.setContentView(resLayout);
         return dialog;
     }
+    public static Dialog createOnkeyDialog(Context context, String num, String address, String type, String detail, final DialogCallback callback) {
+
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View v = inflater.inflate(R.layout.dialog_onkey_save, null);// 得到加载view
+        Button cancel = (Button) v.findViewById(R.id.cancel);
+        TextView time = (TextView) v.findViewById(R.id.tv_time);
+        TextView vol = (TextView) v.findViewById(R.id.tv_vol);
+        TextView dot = (TextView) v.findViewById(R.id.tv_dot);
+        TextView cost = (TextView) v.findViewById(R.id.tv_cost);
+
+        if (!TextUtils.isEmpty(num)) {
+            time.setText(num);// 设置加载信息
+        }
+        if (!TextUtils.isEmpty(address)) {
+            vol.setText(address);// 设置加载信息
+        }
+        if (!TextUtils.isEmpty(type)) {
+            dot.setText(type);// 设置加载信息
+        }
+        if (!TextUtils.isEmpty(detail)) {
+            cost.setText(detail);// 设置加载信息
+        }
+
+        final Dialog loadingDialog = new Dialog(context, R.style.loading_dialog);// 创建自定义样式dialog
+
+        loadingDialog.setCancelable(false);// 不可以用“返回键”取消
+        loadingDialog.setCanceledOnTouchOutside(false);//点击dialog 之外不可以取消
+        Button confirm = (Button) v.findViewById(R.id.confirm);
+        confirm.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                loadingDialog.dismiss();
+                if (callback != null) {
+                    callback.confirm();
+                }
+            }
+        });
+        cancel.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadingDialog.dismiss();
+            }
+        });
+        WindowManager.LayoutParams lp = loadingDialog.getWindow().getAttributes();
+        lp.width = MyApplication.getInstance().widthPixels;
+        lp.height = MyApplication.getInstance().heightPixels;
+
+        loadingDialog.setContentView(v);// 设置布局
+        return loadingDialog;
+
+    }
 
 }

@@ -426,7 +426,7 @@
     <string name="type_call">Call Rescue</string>
     <string name="rescue_50">Detailed description for quicker rescue (up to 50 words)</string>
     <string name="rescue_half_1">Click means you agree to the&#160; </string>
-    <string name="rescue_half_2">Rescue Agreement</string>
+    <string name="rescue_half_2">Agreement</string>
     <string name="kefu">Customer service</string>
     <string name="chat_tip">Hello, what is the need for help? (Consult manual, please send \"人工客服\")</string>
     <string name="v5_chat_title">Intelligent customer service</string>
