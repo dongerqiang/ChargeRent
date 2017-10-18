@@ -175,13 +175,14 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
 
     private void onKeySumit() {
         if(check()){
-            Dialog onkeyDialog = DialogUtils.createOnkeyDialog(mContext, time,voltage,dot,cost, new DialogCallback() {
+            Dialog onkeyDialog = DialogUtils.createOnkeyDialog(mContext, time,voltage,dot,money, new DialogCallback() {
                 @Override
                 public void confirm() {
                     super.confirm();
                     LogUtils.logDug("onKeySumit");
-                    showToast("支付。。。。。。。。。。。。");
 //                    submit();
+                    com.qdigo.chargerent.activity.PayActivity_.intent(ChargeActivity.this).chongZhi(true).money(cost).flags(Intent.FLAG_ACTIVITY_NEW_TASK).start();
+
                 }
             });
             onkeyDialog.show();
@@ -231,18 +232,23 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
     String time;
     String voltage;
     String dot;
-    String cost;
+    double cost;
+    String money;
     private boolean check() {
          time = tv_time.getText().toString().trim();
          voltage = tv_voltage.getText().toString().trim();
          dot = tv_dot.getText().toString().trim();
-         cost = tv_cost.getText().toString().trim();
+         money = tv_cost.getText().toString().trim();
+        if(!TextUtils.isEmpty(money)){
+            String s = money.split(" ")[0];
+            cost = Double.parseDouble(s.trim());
+        }
         if(TextUtils.isEmpty(time)){
             showToast("请选择充电时长");
             return false;
         }
         if(TextUtils.isEmpty(voltage)){
-            showToast("请选择电压");
+            showToast("请选择充电电压");
             return false;
         }
         if(TextUtils.isEmpty(dot)){

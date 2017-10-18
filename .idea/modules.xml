@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ChargeRent.iml" filepath="$PROJECT_DIR$/ChargeRent.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pingpp/pingpp.iml" filepath="$PROJECT_DIR$/pingpp/pingpp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pingpp_one/pingpp_one.iml" filepath="$PROJECT_DIR$/pingpp_one/pingpp_one.iml" />
     </modules>
   </component>
 </project>
